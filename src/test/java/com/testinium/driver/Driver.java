@@ -41,7 +41,6 @@ public class Driver {
                 "(_) (_)  (_)`\\___/'  (_)\n" +
                 "                        \n" +
                 "                        \n");
-      if(Objects.equals(executionContext.getCurrentScenario().getName(), "A101 Web")){
             logger.info("-------------------------------------------------------");
             logger.info("-                 A101 WEB OTOMASYON                  -");
             logger.info("-------------------------------------------------------");
@@ -50,34 +49,10 @@ public class Driver {
             chromeOptions.addArguments("--disable-notifications");
             chromeOptions.addArguments("--disable-gpu");
             chromeOptions.addArguments("--disable-popup-blocking");
+            chromeOptions.addArguments("--disable-blink-features");
+            chromeOptions.addArguments("--disable-blink-features=AutomationControlled");
             driver = new ChromeDriver(chromeOptions);
             driver.manage().window().maximize();
-      }else if(Objects.equals(executionContext.getCurrentScenario().getName(), "A101 Mobil")){
-          if (localAndroid){
-              logger.info("-------------------------------------------------------");
-              logger.info("-                A101 MOBIL OTOMASYON                 -");
-              logger.info("-------------------------------------------------------");
-              DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
-              desiredCapabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, MobilePlatform.ANDROID);
-              desiredCapabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "emulator-5554");
-              desiredCapabilities.setCapability(AndroidMobileCapabilityType.APP_ACTIVITY,"org.studionord.a101.MainActivity");
-              desiredCapabilities.setCapability(AndroidMobileCapabilityType.APP_PACKAGE,"org.studionord.a101");
-              URL url = new URL("http://127.0.0.1:4723/wd/hub");
-              appiumDriver = new AndroidDriver(url, desiredCapabilities);
-
-          }else{
-              System.out.println("Lokalde ios  test ayağa kalktı ");
-              DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
-              desiredCapabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, MobilePlatform.IOS);
-              desiredCapabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME, "XCuiTest");
-              desiredCapabilities.setCapability(MobileCapabilityType.UDID, "00008030-00157936018B802E");
-              desiredCapabilities.setCapability(IOSMobileCapabilityType.BUNDLE_ID,"com.lcwaikiki.iphone");
-              desiredCapabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "iPhone");
-              desiredCapabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, "15.2.1");
-              URL url = new URL("http://127.0.0.1:4723/wd/hub");
-              appiumDriver = new IOSDriver(url, desiredCapabilities);
-          }
-      }
     }
 
     @AfterScenario

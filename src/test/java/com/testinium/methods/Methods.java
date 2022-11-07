@@ -4,6 +4,7 @@ import com.testinium.driver.Driver;
 import com.testinium.helper.StoreHelper;
 import com.testinium.helper.ElementHelper;
 import com.testinium.model.ElementInfo;
+import com.thoughtworks.gauge.Step;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileDriver;
 import io.appium.java_client.touch.WaitOptions;
@@ -23,6 +24,7 @@ import io.appium.java_client.android.nativekey.AndroidKey;
 import io.appium.java_client.android.nativekey.KeyEvent;
 
 import java.time.Duration;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
@@ -74,7 +76,8 @@ public class Methods {
     public List<WebElement> elementleriBul(String key){
         ElementInfo elementInfo = StoreHelper.INSTANCE.findElementInfoByKey(key);
         By info = ElementHelper.getElementInfoToBy(elementInfo);
-        return wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(info));
+        System.out.println(driver.findElements(info));
+        return driver.findElements(info);
     }
 
     public void tikla(String key){
@@ -94,6 +97,11 @@ public class Methods {
 
         javascriptdriver.executeScript("arguments[0].click();", webElement);
     }
+
+    public void scrollWeb(){
+        javascriptdriver.executeScript("window.scrollBy(0,500)", "");
+    }
+
 
 
 
@@ -245,7 +253,13 @@ public class Methods {
         Random random = new Random();
         int randomElement = random.nextInt(maxElement);
         elementList.get(randomElement).click();
+
     }
+    public void nthlementFromList(String key, int row){
+        List<WebElement> elementList = elementleriBul(key);
+        System.out.println(elementList);
+    }
+
 
     public WebElement getElementWithIndex(String key, int index){
         List<WebElement> elementList = elementleriBul(key);
@@ -276,5 +290,11 @@ public class Methods {
         TouchAction action = new TouchAction(mobiledriver);
         action.press(PointOption.point(115, 915)).waitAction(WaitOptions.waitOptions(Duration.ofSeconds(3)))
                 .moveTo(PointOption.point(115, 150)).release().perform();
+    }
+
+
+    public void switchTab(int number) {
+        ArrayList<String> tabs = new ArrayList<>(driver.getWindowHandles());
+        driver.switchTo().window(tabs.get(number - 1));
     }
 }

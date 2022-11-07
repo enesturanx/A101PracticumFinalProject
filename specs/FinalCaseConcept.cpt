@@ -1,0 +1,69 @@
+Created by Enes
+
+Concept Dosyası
+
+# Hepsiburada.com sitesine gidilir
+* "https://www.hepsiburada.com/" url git
+* "hepsiburada.com sitesine gidildi." logunu ekle
+
+# Kullanıcı giriş işlemi yapılır
+* "myAccountButton" elementinin gorunur olmasi kontrol edilir
+* Mouse u "myAccountButton" elementi uzerine getir.
+* "loginButton" elementinin gorunur olmasi kontrol edilir
+* "loginButton" elementine tikla
+* "userNameBox" elementinin gorunur olmasi kontrol edilir
+* "userNameBox" elementine "testenes45@gmail.com" degerini yaz
+* "loginButtonLoginPage" elementinin gorunur olmasi kontrol edilir
+* "loginButtonLoginPage" elementine tikla
+* "passwordBox" elementinin gorunur olmasi kontrol edilir
+* "passwordBox" elementine "TestEnes2022" degerini yaz
+* "emailSelectButton" elementinin gorunur olmasi kontrol edilir
+* "emailSelectButton" elementine tikla
+* "Kullanici giris islemi yapildi" logunu ekle
+
+# Kullanıcı giriş işleminin yapıldığı doğrulanır
+* "myAccountTitle" elementinin gorunur olmasi kontrol edilir
+* "accountName" elementinin text degeri "Enes Turan" degerine esit mi
+* "Kullanici giris isleminin yapildigi dogrulandi" logunu ekle
+
+# <productName> adlı ürün aratılır
+* "searchBox" elementinin gorunur olmasi kontrol edilir
+* "searchBox" elementine <productName> degerini yaz
+* "searchButton" elementinin gorunur olmasi kontrol edilir
+* "searchButton" elementine tikla
+* "urun aratildi" logunu ekle
+
+# Arama sonucunda ilk sıradaki ürün seçilir
+* "firstProduct" elementinin gorunur olmasi kontrol edilir
+* "firstProduct" elementine tikla
+* "2" nolu tab a gec
+* "productTitle" elementinin gorunur olmasi kontrol edilir
+* "productTitle" elementin text degerini degiskende tut
+* "ilk siradaki urun secildi" logunu ekle
+
+# Ürün Sepete eklenir
+* "addToCard" elementinin gorunur olmasi kontrol edilir
+* "addToCard" elementine tikla
+* "productOnBasketHeader" elementinin gorunur olmasi kontrol edilir
+* "productOnBasketHeader" elementinin text degeri "Ürün sepetinizde" degerine esit mi
+* scroll yap web
+* "closeButton" elementinin gorunur olmasi kontrol edilir
+* "closeButton" elementine tikla
+* "Urun sepete eklendi" logunu ekle
+
+# Farklı bir satıcıdan aynı ürün sepete eklenir
+* "otherSellersAddToBasket" elementinin gorunur olmasi kontrol edilir
+* "otherSellersAddToBasket" elementine tikla
+* "productOnBasketHeader" elementinin gorunur olmasi kontrol edilir
+* "productOnBasketHeader" elementinin text degeri "Ürün sepetinizde" degerine esit mi
+* "Farkli saticidan urun sepete eklendi" logunu ekle
+
+# Sepete gidilir
+* "goToBasketButton" elementinin gorunur olmasi kontrol edilir
+* "goToBasketButton" elementine tikla
+* Su anki url "https://checkout.hepsiburada.com/" ile ayni mi
+* "Sepete gidildi" logunu ekle
+
+# Seçilen ürünün doğru olarak eklendiği sepetim sayfasında doğrulanır
+* Sepete eklenen urunle sepetteki urun ayni mi
+* "Sepete eklenen urunle sepetteki urunun ayni oldugu dogrulandi" logunu ekle

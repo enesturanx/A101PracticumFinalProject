@@ -7,6 +7,7 @@ import org.openqa.selenium.WebElement;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -57,7 +58,7 @@ public class StepImp {
         methods.tiklaMobil(key);
     }
 
-    @Step("Mouse u <key> elementi üzerine getir.")
+    @Step("Mouse u <key> elementi uzerine getir.")
     public void mouseHover(String key){
         methods.mouseHover(key);
     }
@@ -73,9 +74,14 @@ public class StepImp {
         methods.metinYollaMobil(element,text);
     }
 
-    @Step("<element> element listesinden random element seç ve tıkla")
+    @Step("<element> element listesinden random element sec ve tikla")
     public void randomElement(String element){
         methods.randomElementFromList(element);
+    }
+
+    @Step("<element> element listesinden <row> siradaki elementi sec ve tikla")
+    public void randomElement(String element, int row){
+        methods.nthlementFromList(element,row);
     }
 
 
@@ -162,8 +168,29 @@ public class StepImp {
         methods.scrollMobil();
     }
 
+    @Step("scroll yap web")
+    public void scrollElementWeb(){
+        methods.scrollWeb();
+    }
+
     @Step("<log> logunu ekle")
     public void logEkle(String log){
         logger.info(log);
+    }
+
+    @Step("<tabNumber> nolu tab a gec")
+    public void tabDegistir(int number){
+        methods.switchTab(number);
+    }
+
+    @Step("<key> elementin text degerini degiskende tut")
+    public void textDegisken(String key){
+        productDetails.put("productName",methods.textDegeriniAl(key));
+        System.out.println(productDetails.get("productName"));
+    }
+
+    @Step("Sepete eklenen urunle sepetteki urun ayni mi")
+    public void eklenenUrunKontrol(){
+        assertEquals(productDetails.get("productName"),methods.textDegeriniAl("productNameInBasket"),"urunler ayni degil");
     }
 }
